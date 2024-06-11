@@ -33,7 +33,7 @@ class FaqController extends Controller
             return redirect(route('admin/faqs'));
         }else{
             session()->flash('error', 'FAQ creation failed');
-            return redirect(route('admin.product/create'));
+            return redirect(route('admin.faqs/create'));
         }
       
     }

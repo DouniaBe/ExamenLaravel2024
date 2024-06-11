@@ -11,6 +11,7 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                     <p><a href="faqs" class="btn btn-primary">Faq</a></p>
+                    <p><a href="items" class="btn btn-primary">Latest news</a></p>
                 </div>
             </div>
         </div>
