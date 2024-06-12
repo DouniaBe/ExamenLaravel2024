@@ -6,8 +6,8 @@ use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Contact; // Importeer het Contact model
 
 class ProfileController extends Controller
 {
@@ -16,8 +16,12 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        // Haal alle contactberichten op en geef ze door aan de view
+        $contacts = Contact::orderBy('created_at', 'desc')->get();
+        
         return view('profile.edit', [
             'user' => $request->user(),
+            'contacts' => $contacts,
         ]);
     }
 
@@ -34,8 +38,8 @@ class ProfileController extends Controller
         $user->fill([
             'name' => $data['name'],
             'email' => $data['email'],
-            'about_me' => $data['about_me'], // Added
-            'birthday' => $data['birthday'], // Added
+            'about_me' => $data['about_me'],
+            'birthday' => $data['birthday'],
         ]);
 
         // Update avatar
@@ -51,7 +55,7 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return redirect()->route('profile.edit')->with('status', 'profile-updated');
     }
 
     /**
@@ -72,6 +76,6 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return redirect()->to('/');
     }
 }

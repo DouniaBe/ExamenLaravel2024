@@ -12,6 +12,7 @@
                     {{ __("You're logged in!") }}
                     <p><a href="faqs" class="btn btn-primary">Faq</a></p>
                     <p><a href="items" class="btn btn-primary">Latest news</a></p>
+                    <p><a href="contacts" class="btn btn-primary">Contact</a></p>
                 </div>
             </div>
         </div>

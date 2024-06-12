@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,13 +42,26 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/admin/items/edit/{id}', [ItemController::class, 'update'])->name('admin/items/update');
     Route::get('/admin/items/delete/{id}', [ItemController::class, 'delete'])->name('admin/items/delete');
 
+
+    Route::get('/admin/contacts', [ContactController::class, 'index'])->name('admin.contacts.index');
+    Route::get('/admin/contacts/{id}', [ContactController::class, 'show'])->name('admin.contacts.show');
+    Route::post('/admin/contacts/{id}/respond', [ContactController::class, 'respond'])->name('admin.contacts.respond');
+
     
+
+
+
 
 
 
 });
 Route::get('/faqs', [FaqController::class, 'indexForUsers'])->name('faqs');
 Route::get('/items', [ItemController::class, 'indexForUsers'])->name('items');
+Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+
+
 
 
 require __DIR__.'/auth.php';
