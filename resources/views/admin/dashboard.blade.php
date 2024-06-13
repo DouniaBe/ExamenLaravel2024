@@ -13,6 +13,8 @@
                     <p><a href="faqs" class="btn btn-primary">Faq</a></p>
                     <p><a href="items" class="btn btn-primary">Latest news</a></p>
                     <p><a href="contacts" class="btn btn-primary">Contact</a></p>
+                    <p><a href="{{ route('admin.users.index') }}" class="btn btn-primary">View Users</a></p>
+
                 </div>
             </div>
         </div>

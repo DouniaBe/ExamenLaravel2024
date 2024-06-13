@@ -6,11 +6,18 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserAdminController;
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -59,6 +66,23 @@ Route::get('/faqs', [FaqController::class, 'indexForUsers'])->name('faqs');
 Route::get('/items', [ItemController::class, 'indexForUsers'])->name('items');
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+
+
+
+
+
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/users', [UserAdminController::class, 'index'])->name('admin.users.index');
+    Route::get('/users/edit/{user}', [UserAdminController::class, 'edit'])->name('admin.users.edit');
+    Route::put('/users/update/{user}', [UserAdminController::class, 'update'])->name('admin.users.update');
+    Route::delete('/users/destroy/{user}', [UserAdminController::class, 'destroy'])->name('admin.users.destroy');
+});
+
+
+
 
 
 
