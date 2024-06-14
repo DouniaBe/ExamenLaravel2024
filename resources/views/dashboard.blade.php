@@ -24,7 +24,14 @@
                                 <h5 class="text-lg font-semibold text-gray-900 mb-2">Laravel</h5>
                                 <p class="text-gray-700">Coming Soon</p>
                             </div>
-                            <!-- Voeg hier andere statische cursussen toe met de status "Coming Soon" -->
+                            <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                                <h5 class="text-lg font-semibold text-gray-900 mb-2">React</h5>
+                                <p class="text-gray-700">Coming Soon</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                                <h5 class="text-lg font-semibold text-gray-900 mb-2">Vue.js</h5>
+                                <p class="text-gray-700">Coming Soon</p>
+                            </div>
                         </div>
                     </div>
                 </div>
