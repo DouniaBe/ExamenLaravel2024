@@ -24,7 +24,10 @@
                             <li>
                                 Laravel YouTube Tutorial: <a href="https://www.youtube.com/watch?v=b-qEj11h7as">https://www.youtube.com/watch?v=b-qEj11h7as</a>
                             </li>
-                            <!-- Voeg hier andere bronnen toe met hun links -->
+                            <li>
+                                Github link : <a href="https://github.com/DouniaBe/ExamenLaravel2024.git">https://github.com/DouniaBe/ExamenLaravel2024.git</a>
+                            </li>
+                           
                         </ul>
                     </p>
                 </div>
